@@ -3,7 +3,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 4000;
 const cors = require("cors");
 const { connect } = require("./config/mongodb");
 const ProductModel = require("./models/Product");
@@ -58,6 +58,6 @@ connect()
       console.log(`Example app listening on PORT ${PORT}`);
     });
   })
-  .catch(() => {
-    console.log("🚀 ~ file: app.js ~ line 30 ~ connect ~ error");
+  .catch((err) => {
+    console.log("🚀 ~ file: app.js ~ line 30 ~ connect ~ error", err);
   });
