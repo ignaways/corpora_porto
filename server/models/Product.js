@@ -39,6 +39,18 @@ class ProductModel {
             throw new error(error);
         }
     }
+
+    static async updateUser(id,product) {
+        try {
+          const db = getDataBase();
+          await db.collection("products").updateOne({_id:ObjectId(id)},{
+              $set:product
+            });      
+        } catch (err) {
+          throw err;
+        }
+      }
+    
 }
 
 module.exports = ProductModel;

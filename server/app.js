@@ -4,7 +4,7 @@ if (process.env.NODE_ENV !== "production") {
 
 const express = require("express");
 const app = express();
-const PORT = process.env.PORT || 4000;
+const PORT = 4000;
 const cors = require("cors");
 const { connect } = require("./config/mongodb");
 const ProductModel = require("./models/Product");
@@ -44,6 +44,15 @@ app.post("/products", async(req,res)=>{
     }
 })
 
+app.put("/products/:id", async (req,res)=>{
+  try {
+      await ProductModel.updateUser(req.params.id,req.body);
+      res.status(200).json({ message: "update success" });
+  } catch (error) {
+      res.status(500).json({ message: "internal server error" });
+  }
+})
+
 app.delete("/products/:id", async (req,res)=>{
     try {
         await ProductModel.deleteProduct(req.params.id);
@@ -52,6 +61,7 @@ app.delete("/products/:id", async (req,res)=>{
         res.status(500).json({ message: "internal server error" });
     }
 })
+
 
 connect()
   .then(() => {
