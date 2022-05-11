@@ -27,7 +27,6 @@ export default function DetailPage() {
 
   return (
     <>
-     {/* <img src={banner} alt="banner" className="mt-28 mb-10 hidden md:block" /> */}
       <div className="max-w-screen-xl mx-auto p-8 sm:p-0 mt-28 sm:mt-36">
         <h2 className="text-3xl font-extrabold leading-9 text-gray-900 mb-0"></h2>
         <div className="sm:flex items-start gap-8 flex-wrap justify-center">
